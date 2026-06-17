@@ -1,6 +1,8 @@
 # Nova Studio — Fullstack Developer Assignment
 
-Nova Studio is a fictional digital agency platform built as a fullstack web application. The project includes a responsive landing page, backend API routes, PostgreSQL database integration, contact form submissions, and a basic admin panel.
+Nova Studio is a fullstack web application built for a fictional digital agency. The goal of this project is to show how a digital agency platform can present its services, portfolio work, key statistics, and collect project inquiries from users.
+
+The application includes a public-facing landing page, backend API routes, PostgreSQL database integration, and a basic admin panel for managing submitted inquiries and portfolio content.
 
 ## Live Demo
 
@@ -12,38 +14,42 @@ https://github.com/oindrilakha12-ui/nova-studio
 
 ## Tech Stack
 
-* Frontend: Next.js
-* Styling: CSS
-* Backend: Next.js API Routes
-* Database: PostgreSQL
-* ORM: Prisma
-* Deployment: Vercel
-* Version Control: Git and GitHub
+* **Frontend:** Next.js
+* **Styling:** CSS
+* **Backend:** Next.js API Routes
+* **Database:** PostgreSQL
+* **ORM:** Prisma
+* **Deployment:** Vercel
+* **Version Control:** Git and GitHub
 
-## Features
+## Main Features
 
 ### Public Website
 
-* Hero section for Nova Studio
-* Start a Project button that scrolls to the contact form
+The public website is designed as a modern digital agency landing page. It includes:
+
+* Hero section with a clear call-to-action
 * Services section
 * Portfolio section
 * Statistics section
 * Contact form
 * Responsive layout
-* Modern card-based UI
-* Hover interactions
+* Smooth scrolling for the “Start a Project” button
+* Clean card-based design with hover effects
 
-### Backend
+### Contact Form
 
-* API routes for services, projects, stats, contacts, and contact form submission
-* PostgreSQL database integration using Prisma
-* Contact form data is stored in the database
-* Portfolio projects are fetched from backend APIs
+Visitors can submit project inquiries using the contact form. The form collects:
+
+* Name
+* Email
+* Message
+
+The submitted data is sent to the backend and stored in the PostgreSQL database.
 
 ### Admin Panel
 
-Admin panel URL:
+Admin panel:
 
 https://nova-studio-gold.vercel.app/admin
 
@@ -53,16 +59,16 @@ Admin password:
 admin123
 ```
 
-Admin features:
+The admin panel includes:
 
-* Basic password-protected admin page
+* Basic password protection
 * View contact form submissions
 * View portfolio projects
 * Add new portfolio projects
 
 ## API Documentation
 
-Base URL:
+Base API URL:
 
 ```txt
 https://nova-studio-gold.vercel.app/api
@@ -70,7 +76,7 @@ https://nova-studio-gold.vercel.app/api
 
 ### GET `/api/services`
 
-Fetches all services.
+Fetches all services displayed on the website.
 
 Example:
 
@@ -104,7 +110,7 @@ Request body:
 
 ### GET `/api/stats`
 
-Fetches statistics data.
+Fetches the agency statistics.
 
 Example:
 
@@ -114,7 +120,7 @@ https://nova-studio-gold.vercel.app/api/stats
 
 ### POST `/api/contact`
 
-Submits a contact form entry and stores it in the database.
+Submits a contact form entry.
 
 Request body:
 
@@ -136,34 +142,34 @@ Example:
 https://nova-studio-gold.vercel.app/api/contacts
 ```
 
-## Database Models
+## Database Structure
 
 The project uses PostgreSQL with Prisma ORM.
 
 Main models:
 
-* Service
-* Project
-* Stat
-* Contact
+* **Service**
+* **Project**
+* **Stat**
+* **Contact**
 
 ### Service
 
-Stores agency services such as Web Design, Front-End Development, and Branding.
+Stores the services offered by Nova Studio, such as Web Design, Front-End Development, and Branding.
 
 ### Project
 
-Stores portfolio projects with title, category, and image URL.
+Stores portfolio project details including title, category, and image URL.
 
 ### Stat
 
-Stores business statistics such as completed projects, clients, and years of experience.
+Stores key business statistics such as completed projects, clients, and years of experience.
 
 ### Contact
 
-Stores contact form submissions with name, email, message, and creation date.
+Stores contact form submissions including name, email, message, and creation date.
 
-## Local Setup Instructions
+## Local Setup
 
 Clone the repository:
 
@@ -183,7 +189,7 @@ Install dependencies:
 npm install
 ```
 
-Create a `.env` file in the root folder and add:
+Create a `.env` file in the root folder and add your PostgreSQL database URL:
 
 ```env
 DATABASE_URL="your_postgresql_database_url"
@@ -201,13 +207,13 @@ Run database migration:
 npx prisma migrate dev
 ```
 
-Start development server:
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Open in browser:
+Open the project in the browser:
 
 ```txt
 http://localhost:3000
@@ -221,19 +227,18 @@ npm run build
 
 ## Deployment
 
-The project is deployed on Vercel. The `DATABASE_URL` environment variable is added in Vercel project settings.
+The project is deployed on Vercel. The `DATABASE_URL` environment variable is added in the Vercel project settings so the deployed application can connect to the PostgreSQL database.
 
 ## Design Decisions
 
-* Next.js was used because it supports both frontend pages and backend API routes in one project.
-* Prisma was used to simplify PostgreSQL database operations.
-* PostgreSQL was used for structured data such as services, projects, stats, and contact submissions.
-* The UI uses reusable sections and card-based layouts for clean presentation.
-* The admin panel is kept simple and functional, focusing on managing submissions and portfolio content.
-* The contact form uses frontend state and backend API submission for end-to-end fullstack functionality.
+I used Next.js because it allows both frontend pages and backend API routes in the same project. This made it easier to build the fullstack application in one codebase.
+
+Prisma was used to connect the application with PostgreSQL and handle database operations in a clean way. PostgreSQL stores structured data such as services, projects, statistics, and contact submissions.
+
+The UI is kept clean and modern with a card-based layout. The homepage focuses on presenting the agency clearly, while the admin panel is kept simple and functional.
 
 ## Notes
 
 * MongoDB analytics is not implemented in this version.
-* The admin authentication is basic and suitable for assignment/demo purposes.
-* The project focuses on core fullstack functionality: frontend UI, APIs, database integration, and admin data management.
+* Admin authentication is basic and created for assignment/demo purposes.
+* The main focus of this project is fullstack functionality: frontend UI, backend APIs, database integration, contact form handling, and basic admin management.
