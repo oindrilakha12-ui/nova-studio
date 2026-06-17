@@ -57,7 +57,17 @@ export default function Home() {
           </p>
 
           <div className="hero-actions">
-            <button type="button">Start a Project</button>
+            <button
+              type="button"
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Start a Project
+            </button>
+
             <a href="#portfolio">View Work</a>
           </div>
         </div>
@@ -150,7 +160,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
+      <section id="contact">
         <h2>Let’s Build Something</h2>
 
         <form onSubmit={handleSubmit}>
